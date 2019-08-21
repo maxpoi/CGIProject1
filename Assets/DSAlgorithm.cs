@@ -4,16 +4,15 @@ using UnityEngine;
 
 /*
 TODO:
-有一半的terrian是没有被triangle覆盖的
  */
 public class DSAlgorithm : MonoBehaviour
 {
     // must be 2^n + 1;
-    private int maxVertics = 65;
-    private float maxHeight = 10.0f;
-    private float roughness = 0.4f;
+    public int maxVertics = 65;
+    public float maxHeight = 10.0f;
+    public float roughness = 0.4f;
 
-    public struct coor
+    public struct coor  
     {
         public int x;
         public int y;
@@ -227,7 +226,7 @@ public class DSAlgorithm : MonoBehaviour
                 triangles.Add((i+1)*maxVertics+j+1);
 
                 triangles.Add(i*maxVertics+j);
-                triangles.Add((i+1)*maxVertics+j);
+                triangles.Add((i+1)*maxVertics+j+1);
                 triangles.Add((i+1)*maxVertics+j);
             }
         }
