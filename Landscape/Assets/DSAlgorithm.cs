@@ -25,7 +25,8 @@ public class DSAlgorithm : MonoBehaviour
     // Start is called before the first frame update
     float[,] calHeights()
     {
-        float d = (float)Random.Range(0, maxHeight);
+        // float d = (float)Random.Range(0, maxHeight);
+        float d = maxHeight;
         int radius = maxVertics-1;
         Stack<coor> dimond = new Stack<coor>();
         List<coor> square = new List<coor>() {
@@ -34,10 +35,14 @@ public class DSAlgorithm : MonoBehaviour
         float[,] heights = new float[maxVertics, maxVertics];
 
         // initialize
-        heights[0,0] = (float)Random.Range(0, maxHeight);
-        heights[0,radius] = (float)Random.Range(0, maxHeight);
-        heights[radius,0] = (float)Random.Range(0, maxHeight);
-        heights[radius,radius] = (float)Random.Range(0, maxHeight);
+        // heights[0,0] = (float)Random.Range(0, maxHeight);
+        // heights[0,radius] = (float)Random.Range(0, maxHeight);
+        // heights[radius,0] = (float)Random.Range(0, maxHeight);
+        // heights[radius,radius] = (float)Random.Range(0, maxHeight);
+        heights[0,0] = (float)Random.Range(-maxHeight, maxHeight);
+        heights[0,radius] = (float)Random.Range(-maxHeight, maxHeight);
+        heights[radius,0] = (float)Random.Range(-maxHeight, maxHeight);
+        heights[radius,radius] = (float)Random.Range(-maxHeight, maxHeight);
 
         // perform dimond/square step
         // halve the radius each step
