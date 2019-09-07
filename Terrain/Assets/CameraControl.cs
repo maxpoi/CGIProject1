@@ -20,18 +20,18 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //get camaeral view angle
+        //get camaeral view angle and the normal vector of it
         camAngle = transform.forward;
+        Vector3 normal = Vector3.Cross(camAngle, new Vector3(0.0f, 0.1f, 0.0f));
 
         //basic camera control according to the camera view angle, wasd as forward, left backward and right. Q as upward and E as downward
         if (Input.GetKey(KeyCode.D))
         {
-            this.transform.localPosition += new Vector3(0.1f, 0.0f, 0.0f);
+            this.transform.localPosition -= normal;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            camAngle.z = 0.0f;
-            this.transform.localPosition -= new Vector3(0.1f, 0.0f, 0.0f);
+            this.transform.localPosition += normal;
         }
         if (Input.GetKey(KeyCode.S))
         {
