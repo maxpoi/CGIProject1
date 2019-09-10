@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public float sensitivity;
+    public float sensitivity = 1;
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
