@@ -11,8 +11,10 @@ public class TerrainScript : MonoBehaviour
     public float maxPosHeight = 5.0f;
     public Texture waterTexture;
 
-    private Vector3[] vertices;
+    public Vector3[] vertices;
     private float waterHeight;
+
+    public MeshCollider meshCollider;
 
     // perform diamond-square algorithm to generate a height map
     // with reference on: https://www.youtube.com/watch?v=1HV8GbFnCik&t=540s
@@ -257,5 +259,7 @@ public class TerrainScript : MonoBehaviour
         waterRenderer.material.shader = Shader.Find("Unlit/WaveShader");
         waterRenderer.material.mainTexture = waterTexture;
         //waterRenderer.material.color = new Color(0.196f, 0.392f, 0.804f, 1.0f);
+
+        meshCollider.sharedMesh = terrainMesh.mesh;
     }
 }
